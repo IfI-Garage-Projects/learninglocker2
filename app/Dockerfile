@@ -20,11 +20,11 @@ RUN apt-get update \
 RUN npm install -g yarn 
 
 # install LL app
-ENV LL_TAG=v2.0.5
+ENV LL_TAG=7.1.0
 RUN git clone https://github.com/LearningLocker/learninglocker.git /opt/learninglocker \
     && cd /opt/learninglocker \
     && git checkout $LL_TAG \
-    && yarn install \
+    && yarn install --ignore-engines\
     && yarn build-all
 
 WORKDIR /opt/learninglocker
